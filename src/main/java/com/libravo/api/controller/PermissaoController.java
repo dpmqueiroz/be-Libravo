@@ -69,6 +69,7 @@ public class PermissaoController {
 		if(permissao.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não encontramos uma permissão com esse ID" + id + " para remover");
 		}else {
+			permissaoRepository.delete(permissao.get());
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 		}
 	}
